@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+ 
+</head>
+<body style="background-color: #f2f2f2;">
+  <div class="container mt-5">
+    <div class="text-primary fst-italic fw-bold fs-4"><%= title %> <%= firstParagraph %></div>
+    <img src="<%= firstImageSrc%>" alt="My Image" class="img-fluid my-4">
+    <script src="index.js"></script>
+  </div>
+
+  <% if (user_id) { %>
+    <form action="/show" method="POST">
+      <input type="hidden" name="title" value="<%= title %>">
+      <input type="hidden" name="firstParagraph" value="<%= firstParagraph %>">
+      <input type="hidden" name="imageSrc" value="<%= firstImageSrc %>">
+      <button class="btn btn-primary me-3">Save to my favorites</button>
+    </form>
+    <form action="/logout" method="POST">
+      <button class="btn btn-secondary">Logout</button>
+    </form>
+  <% } else { %>
+    <div class="bg-light p-3 my-3">
+      <p class="m-0">Please log in to save this to your favorites.</p>
+      <form action="/login" method="GET">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    </div>
+  <% } %>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+</body>
+</html>

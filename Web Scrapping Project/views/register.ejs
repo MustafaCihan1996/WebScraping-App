@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #568290df;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin: 2rem auto;
+            max-width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container form-container">
+        <h1 class="mb-4">Sign Up</h1>
+        <form action="/register" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Enter Username:</label>
+                <input type="text" name="username" id="username" placeholder="username" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Enter password:</label>
+                <input type="password" name="password" id="password" placeholder="password" class="form-control">
+            </div>
+            <button class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

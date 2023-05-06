@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body style="background-color: #f2f2f2;">
+    <div class="container mt-3">
+        <h1 class="mb-3">Hello, your savings will be posted here</h1>
+
+        
+
+        <% products.forEach((product) => { %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title"><%= product.title %></h3>
+                    <img class="card-img-top" src="<%= product.imageSrc %>" alt="Product Image">
+                    <p class="card-text"><%= product.firstParagraph %></p>
+
+                    <form action="/products/<%=product._id%>" method="GET" class="d-inline-block">
+                        <input type="hidden" name="firstParagraph" value="<%= product.firstParagraph %>">
+                        <button type="submit" class="btn btn-primary mr-2">Edit</button>
+                    </form>
+
+                    <form action="/products/<%=product._id%>?_method=DELETE" method="POST" class="d-inline-block">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+
+        <form action="/" method="GET">
+            <button type="submit" class="btn btn-secondary">Return to Home Page</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
